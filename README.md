@@ -51,7 +51,7 @@ APT也是 **AOP(Aspect-Oriented Programming)** 的一种实现方式。
 #### 3.1.2 process(Set< ? extends TypeElement >,RoundEnvironment): boolean
 注解处理器的核心方法，处理具体的注解，生成Java文件。
 参数`set`：使用了支持处理注解的节点集合（被注解标记的类的集合）。
-参数`roundEnvironment`：当前或是之前的运行环境,可以通过该对象查找找到的注解。
+参数`roundEnvironment`：当前或是之前的运行环境,可以通过该对象查找指定注解的集合。
 返回值：true 表示已经处理完成，后续处理器不会再处理
 
 #### 3.1.3 getSupportedSourceVersion(): SourceVersion
