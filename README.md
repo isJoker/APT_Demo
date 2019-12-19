@@ -12,21 +12,27 @@ APT也是 **AOP(Aspect-Oriented Programming)** 的一种实现方式。
 ## 2 什么是Annotation
 ### 2.1 注解分为三类
 * 标准 Annotation
+
 包括 Override, Deprecated, SuppressWarnings，是java自带的几个注解，他们由编译器来识别，不会进行编译， 不影响代码运行
 
 * 元 Annotation
+
 @Retention, @Target, @Inherited, @Documented，它们是用来定义 Annotation 的 Annotation。
 * 自定义 Annotation
+
  使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口，由编译程序自动完成其他细节。在定义注解时，不能继承其他的注解或接口。@interface用来声明一个注解，其中的每一个方法实际上是声明了一个配置参数。方法的名称就是参数的名称，返回值类型就是参数类型（只能是基本类型、Class、String、enum）。可以通过default来声明参数的默认值。
  
 ### 2.2 自定义的注解也分为三类
 * @Retention(RetentionPolicy.SOURCE)
+
 源码时注解，一般用来作为编译器标记。如Override, Deprecated, SuppressWarnings。
 
 * @Retention(RetentionPolicy.RUNTIME)
+
 运行时注解，在运行时通过反射去识别的注解。运行时注解的实质是，在代码中通过注解进行标记，运行时通过反射寻找标记进行某种处理。而运行时注解中使用到了反射，对性能会有一定的影响。
 
 * @Retention(RetentionPolicy.CLASS)
+
 编译时注解，在编译时被识别并处理的注解。编译时按照一定策略生成代码，避免编写重复代码，提高开发效率，且不影响性能。
 
 ## 3 APT相关API
@@ -146,7 +152,7 @@ targetCompatibility = "8"
 // 通过auto-service中的@AutoService可以自动生成AutoService注解处理器
 // 用来生成 META-INF/services/javax.annotation.processing.Processor 文件
 @AutoService(Processor.class)
-// 允许/支持的注解类型，让注解处理器处理（新增annotation module）
+// 允许/支持的注解类型，让注解处理器处理
 @SupportedAnnotationTypes({"com.jokerwan.annotation.JRouter"})
 // 指定JDK编译版本
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
@@ -246,7 +252,7 @@ implementation "com.squareup:javapoet:1.10.0"
 // 通过auto-service中的@AutoService可以自动生成AutoService注解处理器
 // 用来生成 META-INF/services/javax.annotation.processing.Processor 文件
 @AutoService(Processor.class)
-// 允许/支持的注解类型，让注解处理器处理（新增annotation module）
+// 允许/支持的注解类型，让注解处理器处理
 @SupportedAnnotationTypes({"com.jokerwan.annotation.JRouter"})
 // 指定JDK编译版本
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
@@ -309,7 +315,7 @@ public class JRouterProcessor extends AbstractProcessor {
             // 最终想生成的类文件名
             String finalClassName = className + "$$ARouter";
 
-            // 获取类之上@ARouter注解的path值
+            // 获取类之上@Router注解的path值
             JRouter jRouter = element.getAnnotation(JRouter.class);
             // 构建方法体
             MethodSpec methodSpec = MethodSpec.methodBuilder("findTargetClass")// 方法名
