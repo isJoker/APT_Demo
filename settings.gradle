@@ -1,0 +1,2 @@
+include ':app', ':compiler', ':annotation'
+rootProject.name='APT_Demo'
