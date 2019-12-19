@@ -3,9 +3,9 @@
 
 
 ## 1 什么是APT
-**APT(Annotation Processing Toll)**，是一种处理注解的工具，它对源代码文件进行检测找出其中的Annotation，根据注解自动生成代码，如果想要自定义的注解处理器能够正常运行，必须要通过APT工具进行处理。简单来说就是在编译期，通过注解生成 .java 文件。
+ **APT(Annotation Processing Toll)** ，是一种处理注解的工具，它对源代码文件进行检测找出其中的Annotation，根据注解自动生成代码，如果想要自定义的注解处理器能够正常运行，必须要通过APT工具进行处理。简单来说就是在编译期，通过注解生成 .java 文件。
 
-APT也是**AOP(Aspect-Oriented Programming)**的一种实现方式。
+APT也是 **AOP(Aspect-Oriented Programming)** 的一种实现方式。
 
 使用到的APT的框架：DataBinding、Dagger2、ButterKnife、EventBus3、ARouter等
 
