@@ -147,7 +147,7 @@ targetCompatibility = "8"
 * 手动生成java代码
 * 通过JavaPoet自动生成java代码（推荐，不易出错）
 
-#####方式一：手动生成java代码
+##### 方式一：手动生成java代码
 ```
 // 通过auto-service中的@AutoService可以自动生成AutoService注解处理器
 // 用来生成 META-INF/services/javax.annotation.processing.Processor 文件
@@ -242,7 +242,7 @@ public class JRouterProcessor extends AbstractProcessor {
 ```
 通过手动方式生成java文件需要严格按照java文件中的格式，注意空格、分号、换行，大部分编译不通过都是在写java文件的时候一些小细节出错了。
 
-#####方式二：通过JavaPoet自动生成java代码
+##### 方式二：通过JavaPoet自动生成java代码
 在compiler模块的build.gradle中添加依赖JavaPoet依赖
 ```
 implementation "com.squareup:javapoet:1.10.0"
